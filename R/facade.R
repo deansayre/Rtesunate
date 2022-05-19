@@ -1,3 +1,13 @@
+
+#' facade
+#'
+#' @param df
+#' @param dict
+#'
+#' @return
+#' @export
+#'
+#' @examples
 facade <- function(df, dict){
   df1 <- matchmaker::match_df(df,
                               dictionary = dict,
@@ -9,4 +19,4 @@ facade <- function(df, dict){
   return(df1)
 }
 
-devtools::load_all()
+

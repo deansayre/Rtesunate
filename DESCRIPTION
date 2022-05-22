@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Dean", "Sayre", , "deansayre@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: A powerful intravenous tonic for wrangling and analyzing malaria data.
+Description: A powerful intravenous cocktail of functions for wrangling and analyzing malaria data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

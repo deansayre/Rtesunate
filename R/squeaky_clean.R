@@ -8,6 +8,7 @@
 #'
 #' @examples
 squeaky_clean <- function(db, indiv_num = NULL){
+  withr::local_options(.new = list(warn = -1))
   a <- db %>%
     linelist::clean_data(guess_dates = F) %>%
     dplyr::mutate(across(.cols = everything(), ~one_underscore(.x))) %>%

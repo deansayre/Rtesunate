@@ -7,14 +7,16 @@
 #'
 #' @examples
 one_underscore <- function(x){
-  if(!is.na(x)){
   if (is.character(x)){
     if(str_count(x, "_")==1){
       a <- str_replace(x, "_", ".")
-      if(is_all_numeric(a)){
+      if (is_all_numeric(a)){
         as.numeric(a)
-        return(a)}
-      else{
-      return(a)}
-    }}}
-  else return(x)}
+        return(a)
+      }
+      else {return(a)}
+    }
+    else {return(x)}
+  }
+  else {return(x)}
+}

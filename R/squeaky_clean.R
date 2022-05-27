@@ -8,14 +8,13 @@
 #'
 #' @examples
 squeaky_clean <- function(db, indiv_num = NULL){
-  withr::local_options(.new = list(warn = -1))
   a <- db %>%
     linelist::clean_data(guess_dates = F) %>%
-    dplyr::mutate(across(.cols = everything(), ~one_underscore(.x))) %>%
-    dplyr::mutate(across(.cols = everything(), ~na_if(.x,""))) %>%
+    dplyr::mutate(dplyr::across(.cols = tidyselect::everything(), ~one_underscore(.x))) %>%
+    dplyr::mutate(dplyr::across(.cols = tidyselect::everything(), ~dplyr::na_if(.x,""))) %>%
     purrr::discard(~all(is.na(.))) %>%                    # removes columns with no data
-    dplyr::mutate(across(where(is_all_numeric), as.numeric)) %>%  #converts all columns with 100% numeric data to numeric class
-    dplyr::mutate(across(where(is_all_whole) & !all_of(indiv_num), #### this line was chnaged most recently from a working version if issues
+    dplyr::mutate(dplyr::across(tidyselect::where(is_all_numeric), as.numeric)) %>%  #converts all columns with 100% numeric data to numeric class
+    dplyr::mutate(dplyr::across(tidyselect::where(is_all_whole) & !tidyselect::all_of(indiv_num), #### this line was chnaged most recently from a working version if issues
                   as.factor))
 
   return(a)

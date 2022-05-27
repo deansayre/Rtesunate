@@ -9,9 +9,6 @@ one_underscore(x)
 \arguments{
 \item{x}{}
 }
-\value{
-
-}
 \description{
 one_underscore
 }

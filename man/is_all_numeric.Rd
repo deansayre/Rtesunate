@@ -9,9 +9,6 @@ is_all_numeric(x)
 \arguments{
 \item{x}{}
 }
-\value{
-
-}
 \description{
 Title
 }

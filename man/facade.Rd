@@ -9,9 +9,6 @@ facade(df, dict)
 \arguments{
 \item{dict}{}
 }
-\value{
-
-}
 \description{
 facade
 }

@@ -7,14 +7,16 @@
 #' @export
 #'
 #' @examples
+
+utils::globalVariables("where")
 squeaky_clean <- function(db, indiv_num = NULL){
   a <- db %>%
     linelist::clean_data(guess_dates = F) %>%
     dplyr::mutate(dplyr::across(.cols = tidyselect::everything(), ~one_underscore(.x))) %>%
     dplyr::mutate(dplyr::across(.cols = tidyselect::everything(), ~dplyr::na_if(.x,""))) %>%
     purrr::discard(~all(is.na(.))) %>%                    # removes columns with no data
-    dplyr::mutate(dplyr::across(tidyselect::where(is_all_numeric), as.numeric)) %>%  #converts all columns with 100% numeric data to numeric class
-    dplyr::mutate(dplyr::across(tidyselect::where(is_all_whole) & !tidyselect::all_of(indiv_num), #### this line was chnaged most recently from a working version if issues
+    dplyr::mutate(dplyr::across(where(is_all_numeric), as.numeric)) %>%  #converts all columns with 100% numeric data to numeric class
+    dplyr::mutate(dplyr::across(where(is_all_whole) & !tidyselect::all_of(indiv_num), #### this line was chnaged most recently from a working version if issues
                   as.factor))
 
   return(a)

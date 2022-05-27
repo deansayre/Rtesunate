@@ -9,9 +9,6 @@ is_wholenumber(x)
 \arguments{
 \item{x}{}
 }
-\value{
-
-}
 \description{
 Title
 }

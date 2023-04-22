@@ -2,8 +2,11 @@
 
 export()
 export(act_clean)
+export(act_ns)
 export(act_one_under)
 export(act_row)
+export(act_svyciprop_list)
+export(act_svyciprop_tbl)
 export(facade)
 export(is_all_numeric)
 export(is_all_whole)

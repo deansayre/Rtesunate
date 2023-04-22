@@ -21,3 +21,5 @@ one_underscore <- function(x){
   }
   else {return(x)}
 }
+
+one_underscore <- base::Vectorize(one_underscore)

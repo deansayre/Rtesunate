@@ -33,4 +33,5 @@ design <- svydesign(id=~1,strata=~stype, weights=~pw, data=apistrat, fpc=~fpc)
 variable_vect_name <- c("cname", "sch.wide", "awards")
 response <- c("Los Angeles", "Yes", "Yes")
 act_svyciprop_tbl(variable_vect_name, response, design)
+
 }

@@ -28,7 +28,7 @@ act_svyciprop_list <- function(variable_vect_name,
                                response, design_obj_list){purrr::list_cbind(purrr::map(design_obj_list,
                                                                     function (x) purrr::map2_dfr(variable_vect_name,
                                                                                           response,
-                                                                                          function(y,z) Rtesunate::act_svyciprop (y,
+                                                                                          function(y,z) act_svyciprop(y,
                                                                                                                        cond = z,
                                                                                                                        x))))
 }

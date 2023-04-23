@@ -11,7 +11,6 @@
 #' @return A mutli-row dataframe providing the variable names, weighted mean proportions of
 #' observations taking value of interest, cluster-adjusted 95% CIs, and counts
 #' as n/N character variable (N is all non-NA values).
-#' @export
 #'
 #' @examples
 #' using api data from survey package
@@ -20,10 +19,11 @@
 #' variable_vect_name <- c("cname", "sch.wide", "awards")
 #' response <- c("Los Angeles", "Yes", "Yes")
 #' act_svyciprop_tbl(variable_vect_name, response, design)
-
+#'
+#' @export
 act_svyciprop_tbl <- function(variable_vect_name,
                               response, design_obj){
-  purrr::map2_dfr(variable_vect_name, response, function(y,z) Rtensunate::act_svyciprop(y,
+  purrr::map2_dfr(variable_vect_name, response, function(y,z) act_svyciprop(y,
                                                                      cond = z,
                                                                      design_obj))
 }

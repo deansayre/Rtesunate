@@ -20,10 +20,10 @@
 #' design <- svydesign(id=~1,strata=~stype, weights=~pw, data=apistrat, fpc=~fpc)
 #' act_svyciprop("cname", "Los Angeles", design)
 
-
-utils::globalVariables("where")
 #' @export
+
 act_svyciprop <- function(x, cond, design){
+  utils::globalVariables("where")
   a <- Rtesunate::act_row(x = x, term = cond, design = design)
   c <- Rtensunate::act_ns(x = x, cond = cond, design = design)
 

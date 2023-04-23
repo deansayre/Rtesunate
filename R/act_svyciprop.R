@@ -2,6 +2,8 @@
 #' unweighted n/N observation counts for value of interest for selected variable
 #' within a svydesign.
 #'
+#'@import dplyr, tidyselect
+#'
 #' @param x variable of interest (in quotes)
 #' @param cond the value for which estimates are desired (in quotes)
 #' @param design svydesign object containing the variable/value
@@ -9,7 +11,7 @@
 #' @return A dataframe providing the variable name, weighted mean proportion of
 #' observations taking value of interest, cluster-adjusted 95% CI, and counts
 #' as n/N character variable (N is all non-NA values).
-#' @export
+#'
 #'
 #' @examples
 #' using api data from survey package
@@ -19,6 +21,7 @@
 
 
 utils::globalVariables("where")
+#' @export
 act_svyciprop <- function(x, cond, design){
   a <- Rtesunate::act_row(x = x, term = cond, design = design)
   c <- Rtensunate::act_ns(x = x, cond = cond, design = design)

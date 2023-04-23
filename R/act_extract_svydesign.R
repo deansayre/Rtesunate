@@ -6,11 +6,11 @@
 #' @return Dataframe used to build svydesign used
 #'
 #' @examples
+
 #' using api data from survey package
 #' act_extract_svydesign(apistrat)
 
-
-
+#' @export
 act_extract_svydesign <- function(design_object) {
 
   tryCatch({

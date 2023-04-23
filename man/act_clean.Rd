@@ -9,13 +9,15 @@ act_clean(db, indiv_num = NULL)
 \arguments{
 \item{db}{Database to clean}
 
-\item{indiv_num}{Vector of variables in format of c("x", "y", etc) to retain as numeric if all whole numbers}
+\item{indiv_num}{Vector of variables in format of c("x", "y", etc) to retain
+as numeric if all whole numbers (which are otherwise converted to factors)}
 }
 \value{
 A hopefully cleaner database
 }
 \description{
-act_clean
+Uses linelist::clean_data to clean strings and subsequently works
+to back convert inappropriately modified numeric and factor data to correct classes
 }
 \examples{
 act_clean(db)

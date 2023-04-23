@@ -25,7 +25,7 @@
 act_svyciprop <- function(x, cond, design){
 #  utils::globalVariables("where")
   a <- Rtesunate::act_row(x = x, term = cond, design = design)
-  c <- Rtensunate::act_ns(x = x, cond = cond, design = design)
+  c <- Rtesunate::act_ns(x = x, cond = cond, design = design)
 
   d <- dplyr::left_join(a,c, by = c("rowname" = "ind")) %>%
     dplyr::mutate(dplyr::across(tidyselect::where(is.numeric), ~base::round(100*.x,

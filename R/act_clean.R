@@ -1,7 +1,10 @@
-#' act_clean
+#' @title act_clean
+#' @description Uses linelist::clean_data to clean strings and subsequently works
+#' to back convert inappropriately modified numeric and factor data to correct classes
 #'
 #' @param db Database to clean
-#' @param indiv_num Vector of variables in format of c("x", "y", etc) to retain as numeric if all whole numbers
+#' @param indiv_num Vector of variables in format of c("x", "y", etc) to retain
+#' as numeric if all whole numbers (which are otherwise converted to factors)
 #'
 #' @return A hopefully cleaner database
 #' @export

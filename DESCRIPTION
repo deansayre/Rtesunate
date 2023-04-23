@@ -14,7 +14,6 @@ BugReports: https://github.com/deansayre/Rtesunate/issues
 Imports: 
     devtools,
     dplyr,
-    linelist,
     magrittr,
     matchmaker,
     survey,

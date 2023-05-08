@@ -16,7 +16,7 @@ act_clean <- function(db, indiv_num = NULL){
   a <- db %>%
     linelist::clean_data(guess_dates = F) %>%
     dplyr::mutate(dplyr::across(.cols = tidyselect::everything(), ~act_one_under(.x))) %>%
-    dplyr::mutate(dplyr::across(.cols = tidyselect::everything(), ~dplyr::na_if(.x,""))) %>%
+    dplyr::mutate(dplyr::across(tidyselect::where(is.character), ~dplyr::na_if(.x,""))) %>%
     purrr::discard(~all(is.na(.))) %>%
     dplyr::mutate(dplyr::across(where(is_all_numeric), as.numeric)) %>%
     dplyr::mutate(dplyr::across(where(is_all_whole) & !tidyselect::all_of(indiv_num),

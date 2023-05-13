@@ -8,6 +8,10 @@
 #' @param x variable of interest (in quotes)
 #' @param cond the value for which estimates are desired (in quotes)
 #' @param design svydesign object containing the variable/value
+#' @param ... arguments passed to svyciprop
+#'
+#' @import dplyr
+#' @import tidyselect
 #'
 #' @return A dataframe providing the variable name, weighted mean proportion of
 #' observations taking value of interest, cluster-adjusted 95% CI, and counts
@@ -22,16 +26,16 @@
 
 #' @export
 
-act_svyciprop <- function(x, cond, design){
+act_svyciprop <- function(x, cond, design, ...){
 #  utils::globalVariables("where")
-  a <- Rtesunate::act_row(x = x, term = cond, design = design)
+  a <- Rtesunate::act_row(x = x, term = cond, design = design, ...)
   c <- Rtesunate::act_ns(x = x, cond = cond, design = design)
 
   d <- dplyr::left_join(a,c, by = c("rowname" = "ind")) %>%
     dplyr::mutate(dplyr::across(tidyselect::where(is.numeric), ~base::round(100*.x,
                                                                             digits = 1)))%>%
-    dplyr::rename(ci_low = `2.5 %`,
-           ci_high = `97.5 %`) %>%
+    dplyr::rename(ci_low = `2.5%`,
+           ci_high = `97.5%`) %>%
     dplyr::mutate(ci_low = max(ci_low, 0),
            ci_high = min(ci_high, 100))
   return(d)

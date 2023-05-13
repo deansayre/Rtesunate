@@ -5,7 +5,7 @@
 \title{A creates a dataframe with weighted means and cluster adjusted 95\%
 confidence intervals for specific responses for categorical data in svydesign}
 \usage{
-act_row(x, term, design)
+act_row(x, term, design, ...)
 }
 \arguments{
 \item{x}{variable of interest (in quotes)}
@@ -13,6 +13,9 @@ act_row(x, term, design)
 \item{term}{the value for which estimates are desired (in quotes)}
 
 \item{design}{svydesign object containing the variable/value}
+
+\item{...}{confidence interval options passed to svyciprop function. See
+svyciprop documentation for information}
 }
 \value{
 A dataframe providing the mean, 95\% CI

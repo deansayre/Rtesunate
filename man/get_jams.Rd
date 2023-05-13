@@ -4,7 +4,7 @@
 \alias{get_jams}
 \title{get_jams}
 \usage{
-get_jams()
+get_jams(secret_code = NULL)
 }
 \value{
 Righteous tunes

@@ -7,7 +7,7 @@ svydesigns. Useful when survey conducted at multiple times and/or there are
 multiple subsets of interest. Variables and responses are input as vectors;
 svydesigns are input as lists}
 \usage{
-act_svyciprop_list(variable_vect_name, response, design_obj_list)
+act_svyciprop_list(variable_vect_name, response, design_obj_list, ...)
 }
 \arguments{
 \item{variable_vect_name}{a vector of variables of interest (in quotes)}
@@ -17,6 +17,8 @@ Note that these are paired by order and that the number of entries in
 variable_vect_name and response must be equal}
 
 \item{design_obj_list}{list of svydesign object containing the variables/values.}
+
+\item{...}{arguments passed to svyciprop}
 }
 \value{
 A dataframe providing the variable names, weighted mean proportions of

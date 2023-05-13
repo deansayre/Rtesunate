@@ -5,7 +5,7 @@
 \title{Similar to act_svyciprop, but able to spit out a dataframe containing estimates
 for multiple variables/responses. Variables and responses are input as vectors.}
 \usage{
-act_svyciprop_tbl(variable_vect_name, response, design_obj)
+act_svyciprop_tbl(variable_vect_name, response, design_obj, ...)
 }
 \arguments{
 \item{variable_vect_name}{a vector of variables of interest (in quotes)}
@@ -13,6 +13,8 @@ act_svyciprop_tbl(variable_vect_name, response, design_obj)
 \item{response}{a vector of response of intersest for each entry in varibale_vect_name.
 Note that these are paired by order and that the number of entries in
 variable_vect_name and response must be equal}
+
+\item{...}{arguments passed to svyciprop}
 
 \item{design}{svydesign object containing the variables/values. Can only take one svydesign.
 To call multiple svydesigns in parallel, see purrr package or Rtesunate::act_svyciprop_list()}

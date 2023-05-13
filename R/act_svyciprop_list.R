@@ -8,6 +8,9 @@
 #' Note that these are paired by order and that the number of entries in
 #' variable_vect_name and response must be equal
 #' @param design_obj_list list of svydesign object containing the variables/values.
+#' @param ... arguments passed to svyciprop
+#'
+#' @import purrr
 #'
 #' @return A dataframe providing the variable names, weighted mean proportions of
 #' observations taking value of interest, cluster-adjusted 95% CIs, and counts
@@ -25,10 +28,12 @@
 #' response <- c("Yes", "Yes", "Yes")
 #' act_svyciprop_list(variable_vect_name, response, list(design1, design2))
 act_svyciprop_list <- function(variable_vect_name,
-                               response, design_obj_list){purrr::list_cbind(purrr::map(design_obj_list,
+                               response, design_obj_list,
+                               ...){purrr::list_cbind(purrr::map(design_obj_list,
                                                                     function (x) purrr::map2_dfr(variable_vect_name,
                                                                                           response,
                                                                                           function(y,z) act_svyciprop(y,
                                                                                                                        cond = z,
-                                                                                                                       x))))
+                                                                                                                       x,
+                                                                                                                      ...))))
 }

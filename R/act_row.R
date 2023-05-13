@@ -4,6 +4,14 @@
 #' @param x variable of interest (in quotes)
 #' @param term the value for which estimates are desired (in quotes)
 #' @param design svydesign object containing the variable/value
+#' @param ... confidence interval options passed to svyciprop function. See
+#' svyciprop documentation for information
+#'
+#' @import rlang
+#' @import survey
+#' @import tibble
+#' @import dplyr
+#' @import tidyr
 #'
 #' @return A dataframe providing the mean, 95% CI
 #' @export
@@ -15,31 +23,33 @@
 #' act_row("cname", "Los Angeles", design)
 
 
-act_row <- function(x, term, design){
+act_row <- function(x, term, design, ...){
   term_sym <- rlang::sym(term)
   form <- paste0("~",x,"==", "'",term_sym, "'")
 
-  a <- try(stats::confint(survey::svymean(as.formula(form), design = design,
-                                          na.rm=TRUE)))
+  a <- try(survey::svyciprop(as.formula(form), design = design, ...,
+                             na.rm=TRUE))
   if (inherits(a, "try-error")) {
-    b <- tibble::tribble(~rowname, ~mean,  ~`2.5 %`,  ~`97.5 %`,
-                         x,    NA_real_, NA_real_,NA_real_)}
+    c <- tibble::tribble(~rowname, ~value,  ~mean,  ~`2.5%`,  ~`97.5%`,
+                         x,  term,  NA_real_, NA_real_,NA_real_)}
   else{
 
-    a <- stats::confint(survey::svymean(as.formula(form), design = design,
-                                        na.rm=TRUE)) %>%
-      as.data.frame() %>%
-      tibble::rownames_to_column() %>%
-      dplyr::filter(stringr::str_detect(rowname, "TRUE")) %>%
-      dplyr::mutate(rowname = stringr::str_remove(rowname, "==.*"))
+    a <- survey::svyciprop(as.formula(form), design = design, ...,
+                           na.rm=TRUE)
 
-    b <- survey::svymean(as.formula(form), design = design, na.rm=TRUE) %>%
-      as.data.frame() %>%
+    b <- attr(a, "ci") %>%
+      as.data.frame()%>%
       tibble::rownames_to_column() %>%
-      dplyr::filter(stringr::str_detect(rowname, "TRUE")) %>%
-      dplyr::mutate(rowname = stringr::str_remove(rowname, "==.*")) %>%
-      dplyr::select(-SE) %>%
-      dplyr::left_join(a) %>%
-      dplyr::mutate(rowname = stringr::str_trim(rowname))}
-  return(b)
+      tidyr::pivot_wider(names_from = rowname, values_from = 2)
+
+    c <- a %>%
+      as.vector() %>%
+      as.data.frame() %>%
+      dplyr::rename(mean = 1) %>%
+      dplyr::bind_cols(b) %>%
+      dplyr::mutate(rowname = x,
+                    value = term) %>%
+      dplyr::relocate(rowname, value)
+  }
+  return(c)
 }

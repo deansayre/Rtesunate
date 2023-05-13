@@ -7,6 +7,9 @@
 #' variable_vect_name and response must be equal
 #' @param design svydesign object containing the variables/values. Can only take one svydesign.
 #' To call multiple svydesigns in parallel, see purrr package or Rtesunate::act_svyciprop_list()
+#' @param ... arguments passed to svyciprop
+#'
+#' @import purrr
 #'
 #' @return A mutli-row dataframe providing the variable names, weighted mean proportions of
 #' observations taking value of interest, cluster-adjusted 95% CIs, and counts
@@ -22,9 +25,10 @@
 #'
 #' @export
 act_svyciprop_tbl <- function(variable_vect_name,
-                              response, design_obj){
+                              response, design_obj, ...){
   purrr::map2_dfr(variable_vect_name, response, function(y,z) act_svyciprop(y,
                                                                      cond = z,
-                                                                     design_obj))
+                                                                     design_obj,
+                                                                     ...))
 }
 

@@ -30,6 +30,7 @@ act_svyciprop <- function(x, cond, design, ...){
 #  utils::globalVariables("where")
   a <- Rtesunate::act_row(x = x, term = cond, design = design, ...)
   c <- Rtesunate::act_ns(x = x, cond = cond, design = design)
+  design_name <- deparse(substitute(design))
 
   d <- dplyr::left_join(a,c, by = c("rowname" = "ind")) %>%
     dplyr::mutate(dplyr::across(tidyselect::where(is.numeric), ~base::round(100*.x,
@@ -37,6 +38,7 @@ act_svyciprop <- function(x, cond, design, ...){
     dplyr::rename(ci_low = `2.5%`,
            ci_high = `97.5%`) %>%
     dplyr::mutate(ci_low = max(ci_low, 0),
-           ci_high = min(ci_high, 100))
+           ci_high = min(ci_high, 100)) %>%
+    dplyr::rename_with(.cols = everything(), ~paste0(., "_", design_name))
   return(d)
 }

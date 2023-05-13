@@ -6,7 +6,7 @@
 unweighted n/N observation counts for value of interest for selected variable
 within a svydesign.}
 \usage{
-act_svyciprop(x, cond, design)
+act_svyciprop(x, cond, design, ...)
 }
 \arguments{
 \item{x}{variable of interest (in quotes)}
@@ -14,6 +14,8 @@ act_svyciprop(x, cond, design)
 \item{cond}{the value for which estimates are desired (in quotes)}
 
 \item{design}{svydesign object containing the variable/value}
+
+\item{...}{arguments passed to svyciprop}
 }
 \value{
 A dataframe providing the variable name, weighted mean proportion of

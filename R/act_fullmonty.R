@@ -4,13 +4,16 @@
 #'
 #' @import dplyr
 #' @import tidyselect
+#' @import purrr
+#' @import tibble
+#' @import tidyr
 #'
 #'
 #' @param design svydesign object containing the variable/value
 #' @param drop vector of variables to drop from output dataframe
 #'
 #' @return A dataframe providing the variable name, value, weighted mean proportion of
-#' observations taking value of interest, cluster-adjusted 95% CI, and counts
+#' all observations, cluster-adjusted 95% CI, and counts
 #' as n/N character variable (N is all non-NA values).
 #'
 #'
@@ -25,30 +28,30 @@
 act_fullmonty <- function(design, drop = NULL){
   if (!is.null(drop)){
     df <- design[["variables"]] %>%
-      select(where(is.factor) | where(is.character)) %>%
-      select(-all_of(drop))
+      dplyr::select(tidyselect::where(is.factor) | tidyselect::where(is.character)) %>%
+      dplyr::select(-tidyselect::all_of(drop))
   }
 
   else{
     df <- design[["variables"]] %>%
-      select(where(is.factor) | where(is.character))
+      dplyr::select(tidyselect::where(is.factor) | tidyselect::where(is.character))
   }
 
   var <- names(df)
 
-  value <- map(var, ~unique(eval(sym(.x), envir = df))) %>%
+  value <- purrr::map(var, ~unique(eval(rlang::sym(.x), envir = df))) %>%
     purrr::set_names(var) %>%
-    enframe() %>%
-    unnest_longer(value) %>%
-    drop_na(value)
+    tibble::enframe() %>%
+    tidyr::unnest_longer(value) %>%
+    tidyr::drop_na(value)
 
   a <- Rtesunate::act_svyciprop_tbl(value$name, value$value, design) %>%
-    bind_cols(value$value) %>%
-    rename(value = 6,
+    dplyr::bind_cols(value$value) %>%
+    dplyr::rename(value = 6,
            variable = rowname) %>%
-    mutate(type = "categorical") %>%
-    relocate(value, .after = variable) %>%
-    relocate(type, .after = value)
+    dplyr::mutate(type = "categorical") %>%
+    dplyr::relocate(value, .after = variable) %>%
+    dplyr::relocate(type, .after = value)
 
   return(a)
 }

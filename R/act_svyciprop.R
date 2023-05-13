@@ -27,7 +27,6 @@
 #' @export
 
 act_svyciprop <- function(x, cond, design, ...){
-#  utils::globalVariables("where")
   a <- Rtesunate::act_row(x = x, term = cond, design = design, ...)
   c <- Rtesunate::act_ns(x = x, cond = cond, design = design)
   design_name <- deparse(substitute(design))

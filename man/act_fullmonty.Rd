@@ -15,7 +15,7 @@ act_fullmonty(design, drop = NULL)
 }
 \value{
 A dataframe providing the variable name, value, weighted mean proportion of
-observations taking value of interest, cluster-adjusted 95\% CI, and counts
+all observations, cluster-adjusted 95\% CI, and counts
 as n/N character variable (N is all non-NA values).
 }
 \description{

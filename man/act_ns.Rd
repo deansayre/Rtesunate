@@ -3,7 +3,7 @@
 \name{act_ns}
 \alias{act_ns}
 \title{A creates a dataframe with unweighted n/N observation counts for value of interest
-for selected variable within a svydesign. Best used in conjection with Rtesunate::act_rows().
+of selected variable within a svydesign (categorical). Best used in conjunction with Rtesunate::act_rows().
 (See act_svyciprop family of functions which combines the two)}
 \usage{
 act_ns(x, cond, design)
@@ -20,7 +20,7 @@ A dataframe providing the counts as n/N character variable (N is all non-NA valu
 }
 \description{
 A creates a dataframe with unweighted n/N observation counts for value of interest
-for selected variable within a svydesign. Best used in conjection with Rtesunate::act_rows().
+of selected variable within a svydesign (categorical). Best used in conjunction with Rtesunate::act_rows().
 (See act_svyciprop family of functions which combines the two)
 }
 \examples{

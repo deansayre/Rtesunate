@@ -27,7 +27,8 @@
 #' using api data from survey package
 #' data(api)
 #' design <- svydesign(id=~1,strata=~stype, weights=~pw, data=apistrat, fpc=~fpc)
-#' act_svyciprop("cname", "Los Angeles", design)
+#' act_fullmonty(design)
+#' act_fullmonty(design, level = 0.99, method = "mean")
 
 #' @export
 

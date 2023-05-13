@@ -34,8 +34,8 @@ act_svyciprop <- function(x, cond, design, ...){
   d <- dplyr::left_join(a,c, by = c("rowname" = "ind")) %>%
     dplyr::mutate(dplyr::across(tidyselect::where(is.numeric), ~base::round(100*.x,
                                                                             digits = 1)))%>%
-    dplyr::rename(ci_low = `2.5%`,
-           ci_high = `97.5%`) %>%
+    dplyr::rename(ci_low = 4,
+           ci_high = 5) %>%
     dplyr::mutate(ci_low = max(ci_low, 0),
            ci_high = min(ci_high, 100)) %>%
     dplyr::rename_with(.cols = everything(), ~paste0(., "_", design_name))

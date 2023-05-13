@@ -30,12 +30,20 @@ act_fullmonty <- function(design, drop = NULL){
     df <- design[["variables"]] %>%
       dplyr::select(tidyselect::where(is.factor) | tidyselect::where(is.character)) %>%
       dplyr::select(-tidyselect::all_of(drop))
+
+    df2 <- design[["variables"]] %>%
+      dplyr::select(tidyselect::where(is.numeric)) %>%
+      dplyr::select(-tidyselect::all_of(drop))
   }
 
   else{
     df <- design[["variables"]] %>%
       dplyr::select(tidyselect::where(is.factor) | tidyselect::where(is.character))
-  }
+
+    df2 <- design[["variables"]] %>%
+      dplyr::select(tidyselect::where(is.numeric))
+
+    }
 
   var <- names(df)
 
@@ -47,11 +55,24 @@ act_fullmonty <- function(design, drop = NULL){
 
   a <- Rtesunate::act_svyciprop_tbl(value$name, value$value, design) %>%
     dplyr::bind_cols(value$value) %>%
-    dplyr::rename(value = 6,
-           variable = rowname) %>%
-    dplyr::mutate(type = "categorical") %>%
-    dplyr::relocate(value, .after = variable) %>%
-    dplyr::relocate(type, .after = value)
+    dplyr::rename(value = 6
+         #  variable = rowname
+           ) %>%
+    dplyr::mutate(type = "categorical")# %>%
+  #  dplyr::relocate(value, .after = variable) %>%
+  #  dplyr::relocate(type, .after = value)
 
-  return(a)
+  var2 <- names(df2)
+
+  b <- Rtesunate::act_svyciquant_tbl(var2, design) %>%
+    dplyr::rename(value = 6
+                  #variable = rowname
+                  ) %>%
+    dplyr::mutate(value = NA_character_) %>%
+    dplyr::mutate(type = "quantitative") #%>%
+  #  dplyr::relocate(value, .after = variable) %>%
+  #  dplyr::relocate(type, .after = value)
+
+c <- dplyr::bind_rows(a,b)
+  return(c)
 }

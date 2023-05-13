@@ -3,15 +3,23 @@
 \name{act_fullmonty}
 \alias{act_fullmonty}
 \title{A dataframe with weighted mean, cluster-adjusted 95\% CI, and
-unweighted n/N observation counts for every variable
-within a svydesign.}
+unweighted n/N observation counts for every variable within a svydesign.
+A blunt tool for quick exploration lacking some of the capabilities/finesse
+of act_svyciprop and act_svyciquant.}
 \usage{
-act_fullmonty(design, drop = NULL)
+act_fullmonty(design, drop = NULL, level = 0.95, method = "logit")
 }
 \arguments{
 \item{design}{svydesign object containing the variable/value}
 
 \item{drop}{vector of variables to drop from output dataframe}
+
+\item{level}{confidence level for CIs passed to both categorical and
+quantitative variables expressed as a fraction, i.e., '0.xx'}
+
+\item{method}{method used for categorical CIs. Options: "logit" (default),
+"likelihood", "asin", "beta", "mean", "xlogit". See svyciprop documentation
+for more details.}
 }
 \value{
 A dataframe providing the variable name, value, weighted mean proportion of
@@ -20,8 +28,9 @@ as n/N character variable (N is all non-NA values).
 }
 \description{
 A dataframe with weighted mean, cluster-adjusted 95\% CI, and
-unweighted n/N observation counts for every variable
-within a svydesign.
+unweighted n/N observation counts for every variable within a svydesign.
+A blunt tool for quick exploration lacking some of the capabilities/finesse
+of act_svyciprop and act_svyciquant.
 }
 \examples{
 using api data from survey package

@@ -1,6 +1,7 @@
 #' A dataframe with weighted mean, cluster-adjusted 95% CI, and
-#' unweighted n/N observation counts for every variable
-#' within a svydesign.
+#' unweighted n/N observation counts for every variable within a svydesign.
+#' A blunt tool for quick exploration lacking some of the capabilities/finesse
+#' of act_svyciprop and act_svyciquant.
 #'
 #' @import dplyr
 #' @import tidyselect
@@ -11,6 +12,11 @@
 #'
 #' @param design svydesign object containing the variable/value
 #' @param drop vector of variables to drop from output dataframe
+#' @param level confidence level for CIs passed to both categorical and
+#' quantitative variables expressed as a fraction, i.e., '0.xx'
+#' @param method method used for categorical CIs. Options: "logit" (default),
+#' "likelihood", "asin", "beta", "mean", "xlogit". See svyciprop documentation
+#' for more details.
 #'
 #' @return A dataframe providing the variable name, value, weighted mean proportion of
 #' all observations, cluster-adjusted 95% CI, and counts
@@ -25,17 +31,17 @@
 
 #' @export
 
-act_fullmonty <- function(design, drop = NULL){
+act_fullmonty <- function(design, drop = NULL, level = 0.95,
+                          method = "logit"){
   if (!is.null(drop)){
     df <- design[["variables"]] %>%
-      dplyr::select(tidyselect::where(is.factor) | tidyselect::where(is.character)) %>%
-      dplyr::select(-tidyselect::all_of(drop))
+      dplyr::select(-tidyselect::all_of(drop)) %>%
+      dplyr::select(tidyselect::where(is.factor) | tidyselect::where(is.character))
 
     df2 <- design[["variables"]] %>%
-      dplyr::select(tidyselect::where(is.numeric)) %>%
-      dplyr::select(-tidyselect::all_of(drop))
+      dplyr::select(-tidyselect::all_of(drop)) %>%
+      dplyr::select(tidyselect::where(is.numeric))
   }
-
   else{
     df <- design[["variables"]] %>%
       dplyr::select(tidyselect::where(is.factor) | tidyselect::where(is.character))
@@ -53,26 +59,25 @@ act_fullmonty <- function(design, drop = NULL){
     tidyr::unnest_longer(value) %>%
     tidyr::drop_na(value)
 
-  a <- Rtesunate::act_svyciprop_tbl(value$name, value$value, design) %>%
-    dplyr::bind_cols(value$value) %>%
-    dplyr::rename(value = 6
-         #  variable = rowname
-           ) %>%
-    dplyr::mutate(type = "categorical")# %>%
-  #  dplyr::relocate(value, .after = variable) %>%
-  #  dplyr::relocate(type, .after = value)
+  a <- Rtesunate::act_svyciprop_tbl(value$name, value$value, design, method = method,
+                                    level = level) %>%
+    dplyr::rename(count = 6) %>%
+    dplyr::mutate(type = "categorical") %>%
+    dplyr::relocate(type, .after = 2)
 
   var2 <- names(df2)
 
-  b <- Rtesunate::act_svyciquant_tbl(var2, design) %>%
-    dplyr::rename(value = 6
-                  #variable = rowname
-                  ) %>%
-    dplyr::mutate(value = NA_character_) %>%
-    dplyr::mutate(type = "quantitative") #%>%
-  #  dplyr::relocate(value, .after = variable) %>%
-  #  dplyr::relocate(type, .after = value)
+  b <- Rtesunate::act_svyciquant_tbl(var2, design, level = level) %>%
+    dplyr::rename(count = 6) %>%
+    dplyr::mutate(type = "quantitative") %>%
+    dplyr::relocate(type, .after = 2)
 
 c <- dplyr::bind_rows(a,b)
-  return(c)
-}
+
+df3 <- names(design[["variables"]]) %>%
+  as.data.frame() %>%
+  dplyr::rename(variable = 1) %>%
+  dplyr::left_join(rename(c, variable = 1), by = "variable")
+
+return(df3)
+             }

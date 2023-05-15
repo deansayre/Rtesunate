@@ -2,6 +2,7 @@
 #' @description Let's ROCK!
 #'
 #' @return Righteous tunes
+#' @import magick
 #' @export
 #'
 #' @param secret_code Accepts a secret code, if you know any (in quotes)

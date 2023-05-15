@@ -14,7 +14,7 @@ get_jams <- function(secret_code = NULL){
         if (secret_code == "dean_al"){
           browseURL("https://www.youtube.com/watch?v=eYwuCpOHKc4")
         }
-        else{stop("Ah ah ah... you didn't say the magic word\n
+        else{cat("Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n
@@ -42,7 +42,9 @@ get_jams <- function(secret_code = NULL){
                   Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n
-                  Ah ah ah... you didn't say the magic word\n")}
+                  Ah ah ah... you didn't say the magic word")
+          a <- magick::image_read("R/secret_code.gif")
+          print(a, info = FALSE)}
       }
   else{
   vect <- c("https://www.youtube.com/watch?v=5ViMA_qDKTU",

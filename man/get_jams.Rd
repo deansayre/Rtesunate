@@ -6,6 +6,9 @@
 \usage{
 get_jams(secret_code = NULL)
 }
+\arguments{
+\item{secret_code}{Accepts a secret code, if you know any (in quotes)}
+}
 \value{
 Righteous tunes
 }

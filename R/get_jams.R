@@ -4,6 +4,8 @@
 #' @return Righteous tunes
 #' @export
 #'
+#' @param secret_code Accepts a secret code, if you know any (in quotes)
+#'
 #' @examples
 #' get_jams()
 

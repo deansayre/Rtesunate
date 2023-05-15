@@ -8,6 +8,41 @@
 #' get_jams()
 
 get_jams <- function(secret_code = NULL){
+  if (!is.null(secret_code)){
+        if (secret_code == "dean_al"){
+          browseURL("https://www.youtube.com/watch?v=eYwuCpOHKc4")
+        }
+        else{stop("Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n
+                  Ah ah ah... you didn't say the magic word\n")}
+      }
+  else{
   vect <- c("https://www.youtube.com/watch?v=5ViMA_qDKTU",
             "https://www.youtube.com/watch?v=YVo4EGXeUUI",
             "https://www.youtube.com/watch?v=MZlH0LnRQhs",
@@ -31,4 +66,5 @@ get_jams <- function(secret_code = NULL){
 
   x1 <- sample(vect, 1)
   browseURL(x1)
+  }
 }

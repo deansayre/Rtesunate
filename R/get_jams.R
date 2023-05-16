@@ -44,7 +44,7 @@ get_jams <- function(secret_code = NULL){
                   Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word")
-          a <- magick::image_read("R/secret_code.gif")
+          a <- magick::image_read(system.file("secret_code.gif"))
           print(a, info = FALSE)}
       }
   else{

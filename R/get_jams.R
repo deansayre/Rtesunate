@@ -44,9 +44,10 @@ get_jams <- function(secret_code = NULL){
                   Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word")
-          a <- magick::image_read(system.file("secret_code.gif"))
+          a <- magick::image_read(system.file("secret_code.gif",
+                                              package="Rtesunate"))
           print(a, info = FALSE)}
-      }
+  }
   else{
   vect <- c("https://www.youtube.com/watch?v=5ViMA_qDKTU",
             "https://www.youtube.com/watch?v=YVo4EGXeUUI",

@@ -15,6 +15,9 @@ get_jams <- function(secret_code = NULL){
         if (secret_code == "dean_al"){
           browseURL("https://www.youtube.com/watch?v=eYwuCpOHKc4")
         }
+    else if (secret_code == "dante. gone but not forgotten"){
+      browseURL("https://www.youtube.com/watch?v=u5o582N3wOQ")
+    }
         else{cat("Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n

@@ -3,11 +3,6 @@
 #' A blunt tool for quick exploration lacking some of the capabilities/finesse
 #' of act_svyciprop and act_svyciquant.
 #'
-#' @import dplyr
-#' @import tidyselect
-#' @import purrr
-#' @import tibble
-#' @import tidyr
 #'
 #'
 #' @param design svydesign object containing the variable/value

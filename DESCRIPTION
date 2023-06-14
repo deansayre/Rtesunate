@@ -22,6 +22,7 @@ Imports:
     purrr,
     stringr,
     tidyselect,
+    magick,
     withr,
     linelist (>= 0.0.40.9000)
 Remotes: reconhub/linelist

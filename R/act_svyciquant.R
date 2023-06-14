@@ -6,8 +6,6 @@
 #' @param design svydesign object containing the variable/value
 #' @param ... arguments passed to stats::confint
 #'
-#' @import dplyr
-#' @import tidyselect
 #'
 #' @return A dataframe providing the variable name, weighted mean of
 #' a quantitative variable of interest, cluster-adjusted 95% CI, and counts

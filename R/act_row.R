@@ -7,11 +7,6 @@
 #' @param ... confidence interval options passed to svyciprop function. See
 #' svyciprop documentation for information
 #'
-#' @import rlang
-#' @import survey
-#' @import tibble
-#' @import dplyr
-#' @import tidyr
 #'
 #' @return A dataframe providing the mean, 95% CI
 #' @export

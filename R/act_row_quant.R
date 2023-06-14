@@ -18,10 +18,6 @@
 #' act_row_quant("api00", design)
 #' act_row_quant("api00", design, level = 0.99)
 #'
-#' @import stats
-#' @import survey
-#' @import tibble
-#' @import dplyr
 #'
 #' @export
 act_row_quant <- function(x, design, ...){

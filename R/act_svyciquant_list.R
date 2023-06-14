@@ -7,7 +7,6 @@
 #' @param design_obj_list list of svydesign object containing the variables/values.
 #' @param ... arguments passed to svyciprop
 #'
-#' @import purrr
 #'
 #' @return A dataframe providing the variable names, weighted mean proportions of
 #' observations taking value of interest, cluster-adjusted 95% CIs, and counts

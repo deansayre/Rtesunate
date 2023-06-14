@@ -6,7 +6,6 @@
 #' To call multiple svydesigns in parallel, see purrr package or Rtesunate::act_svyciquant_list()
 #' @param ... arguments passed to svyciquant
 #'
-#' @import purrr
 #'
 #' @return A mutli-row dataframe providing the variable names, weighted means of
 #' observations of interest, cluster-adjusted 95% CIs, and counts of all non-NA values.

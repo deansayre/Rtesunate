@@ -9,7 +9,6 @@
 #' To call multiple svydesigns in parallel, see purrr package or Rtesunate::act_svyciprop_list()
 #' @param ... arguments passed to svyciprop
 #'
-#' @import purrr
 #'
 #' @return A mutli-row dataframe providing the variable names, weighted mean proportions of
 #' observations taking value of interest, cluster-adjusted 95% CIs, and counts

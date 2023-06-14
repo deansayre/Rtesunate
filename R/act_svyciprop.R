@@ -2,16 +2,12 @@
 #' unweighted n/N observation counts for value of interest for selected variable
 #' within a svydesign.
 #'
-#' @import dplyr
-#' @import tidyselect
 #'
 #' @param x variable of interest (in quotes)
 #' @param cond the value for which estimates are desired (in quotes)
 #' @param design svydesign object containing the variable/value
 #' @param ... arguments passed to svyciprop
 #'
-#' @import dplyr
-#' @import tidyselect
 #'
 #' @return A dataframe providing the variable name, weighted mean proportion of
 #' observations taking value of interest, cluster-adjusted 95% CI, and counts

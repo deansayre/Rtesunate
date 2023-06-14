@@ -30,4 +30,5 @@ design <- svydesign(id=~1,strata=~stype, weights=~pw, data=apistrat, fpc=~fpc)
 act_row_quant("api00", design)
 act_row_quant("api00", design, level = 0.99)
 
+
 }

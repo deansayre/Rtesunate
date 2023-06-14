@@ -13,15 +13,12 @@
 #' @param ... passed to join function of choice
 #'
 #' @return Dependent on 'out' parameter. See above
-#' @import dplyr
-#' @import janitor
-#' @import purrr
 #'
-#' @export
 #'
 #' @examples
 #' test <- act_join(x, y, by = c("param1" = "param1", "param2" = "param2"))
 #'
+#' @export
 act_join <- function(x,
                      y,
                      type = "left_join",

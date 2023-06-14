@@ -30,6 +30,10 @@ act_ns <- function(x, cond, design){
     dplyr::filter(!!x1 == cond)
 
   a <- dplyr::pull(test1, var = n)
+
+  if(is.null(a)){a <- 0}      # new to solve issue with blanks
+  else {a <- a}               # new to solve issue with blanks
+
   b <- base::sum(test$n)
 
   c <- tibble::tibble(ind = base::paste0(x1),

@@ -45,7 +45,7 @@
 #'   \item{report_link}{}
 #'   \item{Lat}{}
 #'   \item{Long}{}
-#'
+#'}
 #' @examples
 #' data <- tes_data
 #'

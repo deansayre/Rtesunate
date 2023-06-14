@@ -21,7 +21,7 @@
 #'   \item{SurveyYear}{Official DHS survey year}
 #'   \item{DHS_CountryCode}{Official two letter DHS country code}
 #'   \item{IndicatorId}{Official indicator ID}
-#'
+#'}
 #' @examples
 #' data <- pmi_dhs_data
 #'

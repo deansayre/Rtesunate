@@ -1,7 +1,7 @@
 #' @title act_make_dict
 #' @description Creates a dataframe and optionally Excel file that can be
-#' subsequently used as a dictionary in matchmaker or linelist to change
-#' multiple spellings at once for the purposes of matching
+#' subsequently used as a dictionary in matchmaker or linelist for assignment of
+#'  uniform spellings across multiple dataframes
 #'
 #' @param vec1 Vector designated as correctly spelled (e.g., health facility
 #' names in dataframe 1) to which all others will be changed for the purposes of

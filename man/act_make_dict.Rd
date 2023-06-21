@@ -34,8 +34,8 @@ match suggested by the function
 }
 \description{
 Creates a dataframe and optionally Excel file that can be
-subsequently used as a dictionary in matchmaker or linelist to change
-multiple spellings at once for the purposes of matching
+subsequently used as a dictionary in matchmaker or linelist for assignment of
+uniform spellings across multiple dataframes
 }
 \examples{
 vec1 <- c("Frank", "Tom", "Jerry")

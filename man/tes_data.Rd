@@ -45,6 +45,7 @@ A data frame with 346 rows and 39 columns:
 \item{Lat}{}
 \item{Long}{}
 }
+}
 \usage{
 tes_data
 }

@@ -5,6 +5,8 @@
 \alias{pmi_dhs_data}
 \title{DHS/MIS malaria data for PMI countries}
 \format{
+\subsection{'pmi_dhs_data'}{
+
 A data frame with 4462 rows and 13 columns:
 \describe{
 \item{CountryName}{Country name}
@@ -20,6 +22,8 @@ A data frame with 4462 rows and 13 columns:
 \item{SurveyYear}{Official DHS survey year}
 \item{DHS_CountryCode}{Official two letter DHS country code}
 \item{IndicatorId}{Official indicator ID}
+}
+}
 }
 \source{
 \href{https://dhsprogram.com/}{DHS Program}

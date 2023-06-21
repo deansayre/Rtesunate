@@ -6,7 +6,8 @@
 #'
 #' @usage data(pmi_dhs_data)
 #'
-#' @format A data frame with 4462 rows and 13 columns:
+#' @format ## 'pmi_dhs_data'
+#' A data frame with 4462 rows and 13 columns:
 #' \describe{
 #'   \item{CountryName}{Country name}
 #'   \item{SurveyYearLabel}{Year(s) survey was conducted}

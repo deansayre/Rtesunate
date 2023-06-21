@@ -56,10 +56,12 @@ act_make_dict <- function(vec1, list1,
 
   # correction1 <- unlist(map(correction, ~ifelse(is.null(.x), NA_character_, .x)))
 
-  comp_guess <- dplyr::bind_cols(correction, b, a1, unique(vec1)) %>%
-    dplyr::rename(change_to = 1,
-           change_from = 2,
-           goodspell_options_unmatched = 3,
+  comp_guess <- bind_cols(correction, b) %>%
+    rename(change_to = 1,
+           change_from = 2) %>%
+    arrange(change_from) %>%
+    bind_cols(a1, sort(vec1)) %>%
+    rename(goodspell_options_unmatched = 3,
            goodspell_options_all = 4)
 
   if (excel == TRUE){

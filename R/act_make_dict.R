@@ -35,7 +35,8 @@
 #' dictionary <- act_make_dict(vec1, list1)
 
 act_make_dict <- function(vec1, list1,
-                          excel = TRUE, filename = "dictionary.xlsx"){
+                          excel = TRUE, filename = "dictionary.xlsx",
+                          method = "osa"){
   if (is.list(list1)){
     vec2 <- unique(unlist(list1))
   }
@@ -44,7 +45,8 @@ act_make_dict <- function(vec1, list1,
   b <- na.omit(dplyr::setdiff(vec2, vec1))  # what's in the other names lists that doesn't match the gold standard (bad spelling)
 
 
-  correction <- unlist(purrr::map(b, ~vec1[which.min(stringdist(.x, vec1))]))  # R's guess in the gold standard for each of the "bad spellings"
+  correction <- unlist(purrr::map(b, ~vec1[which.min(stringdist(.x, vec1,
+                                                                method = method))]))  # R's guess in the gold standard for each of the "bad spellings"
 
   a1 <- dplyr::setdiff(a, correction)
 

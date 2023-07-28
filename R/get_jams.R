@@ -17,6 +17,13 @@ get_jams <- function(secret_code = NULL){
     else if (secret_code == "dante. gone but not forgotten"){
       browseURL("https://www.youtube.com/watch?v=u5o582N3wOQ")
     }
+    else if (secret_code == "hallender mix"){
+      vect <- c("https://www.youtube.com/watch?v=0R7wpcw1Z4A",
+                "https://www.youtube.com/watch?v=Kh8-r6O43Rw",
+                "https://www.youtube.com/watch?v=c9zteYU7jSU")
+
+      x1 <- sample(vect, 1)
+      browseURL(x1)}
         else{cat("Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n

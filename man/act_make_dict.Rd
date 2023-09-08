@@ -4,7 +4,13 @@
 \alias{act_make_dict}
 \title{act_make_dict}
 \usage{
-act_make_dict(vec1, list1, excel = TRUE, filename = "dictionary.xlsx")
+act_make_dict(
+  vec1,
+  list1,
+  excel = TRUE,
+  filename = "dictionary.xlsx",
+  method = "osa"
+)
 }
 \arguments{
 \item{vec1}{Vector designated as correctly spelled (e.g., health facility

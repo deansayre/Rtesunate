@@ -4,13 +4,16 @@
 \alias{act_clean}
 \title{act_clean}
 \usage{
-act_clean(db, indiv_num = NULL)
+act_clean(db, indiv_num = NULL, ...)
 }
 \arguments{
 \item{db}{Database to clean}
 
 \item{indiv_num}{Vector of variables in format of c("x", "y", etc) to retain
 as numeric if all whole numbers (which are otherwise converted to factors)}
+
+\item{...}{Additional arameters to pass to linelist's clean_data, including
+dictionary for spell changes}
 }
 \value{
 A hopefully cleaner database

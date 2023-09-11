@@ -44,5 +44,11 @@ Another dimension")
                                       package="Rtesunate")),
                            grDevices::dev.size("px"))
   print(a, info = FALSE)
+} else if(palette == "unknown_pleasures"){
+  cat("British. Post-punk. Depressing.")
+  a <- magick::image_scale(magick::image_read(system.file("unknown_pleasures.png",
+                                                          package="Rtesunate")),
+                           grDevices::dev.size("px"))
+  print(a, info = FALSE)
 } else{scales::show_col(mal_pal[[palette]])}
 }

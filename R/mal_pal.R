@@ -51,7 +51,21 @@ mal_pal <- list(
              "#8B3102",
              "#8D8B00",
              "#781D7E",
-             "#17468F"),
+             "#0033a1"),
+
+  ncird = c("#8b9b92",
+            "#532e63",
+            "#7a003c",
+            "#b2a97e",
+            "#ffe293",
+            "#0033a1"),
+
+  niosh = c("#695e4a",
+            "#8b0e04",
+            "#26bcd7",
+            "#7ac143",
+            "#f89728",
+            "#0033a1"),
 
 usaid = c("#002F6C",
           "#0067B9",
@@ -129,7 +143,11 @@ hello_nasty = c("#DB5721",
                 "#E4DA9F",
                 "#A4A299",
                 "#66665D",
-                "#222220"))
+                "#222220"),
+
+ # joy division: unknown pleasures, 1979
+unknown_pleasures = c("#11120d",
+                      "#dfdfd7"))
 
 usethis::use_data(mal_pal, overwrite = TRUE)
 

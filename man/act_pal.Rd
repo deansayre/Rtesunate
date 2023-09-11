@@ -5,7 +5,7 @@
 \title{Generates a function to create a palette based on those included in the
 package.}
 \usage{
-act_pal(palette = "ncezid", reverse = FALSE, n, ...)
+act_pal(palette = "ncezid", reverse = FALSE)
 }
 \arguments{
 \item{palette}{name of pre-fab palette on which to base output (in quotes)}

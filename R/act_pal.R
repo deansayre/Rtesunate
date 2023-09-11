@@ -18,16 +18,15 @@
 #' @export
 
 
-act_pal <- function(palette = "ncezid", reverse = FALSE, n, ...) {
+act_pal <- function(palette = "ncezid", reverse = FALSE) {
   pal <- mal_pal[[palette]]
 
   if (reverse) pal <- rev(pal)
 
-  if (n <= length(pal)){
-    return(pal[c(1:n)])
-  } else {colorRampPalette(pal, ...)(n)}
-
+  return(function(n){
+    if (n <= length(pal)){
+      pal[c(1:n)]
+    } else{colorRampPalette(pal)(n)}
+  })
 }
-
-
 

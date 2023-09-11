@@ -23,11 +23,15 @@ act_scale_color <- function(palette = "ncezid",
                             discrete = TRUE,
                             reverse = FALSE,
                             ...) {
-  pal <- act_pal(palette = palette, reverse = reverse)
 
-  if (discrete) {
-    discrete_scale("colour", name = NULL, palette = pal, ...)
+  if (discrete == TRUE) {
+    ggplot2::discrete_scale("colour", "mal_pal",
+                            palette = act_pal(palette = palette,
+                                              reverse = reverse),
+                            ...)
   } else {
-    scale_color_gradientn(colours = pal(256), ...)
+    ggplot2::scale_color_gradientn(colours = act_pal(palette = palette,
+                                                     reverse = reverse)(256),
+                                   ...)
   }
 }

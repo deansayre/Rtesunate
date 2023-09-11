@@ -28,5 +28,9 @@ Colors ggplots with palettes based on pre-fab palettes included in this
 package, at no extra cost!
 }
 \examples{
-pal_5 <- act_pal("aladdin_sane")(5)
+data("iris")
+library(tidyverse)
+ggplot(iris)+
+  geom_histogram(aes(x = Petal.Length, fill = Species))+
+  act_scale_fill("usaid")
 }

@@ -15,21 +15,29 @@
 #' @return A ggplot with colors that ROCK (or that are sort of boring, depending
 #' on the pre-fab palette chosen).
 #'
+#' @importFrom ggplot2 scale_fill_manual discrete_scale scale_fill_gradientn
 #'
 #' @examples
-#' pal_5 <- act_pal("aladdin_sane")(5)
+#' data("iris")
+#' library(tidyverse)
+#' ggplot(iris)+
+#'   geom_histogram(aes(x = Petal.Length, fill = Species))+
+#'   act_scale_fill("usaid")
 
 #' @export
 
 
 act_scale_fill <- function(palette = "ncezid",
                            discrete = TRUE,
-                           reverse = FALSE, ...) {
-  pal <- mal_pal(palette = palette, reverse = reverse)
-
-  if (discrete) {
-    discrete_scale("fill", name = NULL, palette = pal, ...)
+                           reverse = FALSE,
+                           ...) {
+  if (discrete ==TRUE) {
+    ggplot2::discrete_scale("fill", "mal_pal",
+                   palette = act_pal(palette = palette, reverse = reverse),
+                   ...)
   } else {
-    scale_fill_gradientn(colours = pal(256), ...)
+    ggplot2::scale_fill_gradientn(colours = act_pal(palette = palette,
+                                           reverse = reverse)(256),
+                         ...)
   }
 }

@@ -45,7 +45,6 @@
 #'                      axes = FALSE, xlab = "", ylab = "",
 #'                            asp = cos(27.5 * pi/180))
 #' }
-#' @export
 mal_pal <- list(
   ncezid = c("#D9531E",
              "#006A71",
@@ -132,7 +131,8 @@ hello_nasty = c("#DB5721",
                 "#66665D",
                 "#222220"))
 
-#
+usethis::use_data(mal_pal, overwrite = TRUE)
+
 #
 #    "#CF9032", "#CD7E2A", "#6C3622", "#6FA1BB"
 #

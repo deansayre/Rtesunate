@@ -25,5 +25,11 @@ Colors ggplots with palettes based on pre-fab palettes included in this
 package, at no extra cost!
 }
 \examples{
-pal_5 <- act_pal("aladdin_sane")(5)
+data("iris")
+
+library(tidyverse)
+
+ggplot(iris)+
+ geom_point(aes(x = Sepal.Width, y = Petal.Length, color = Species))+
+ act_scale_color("hello_nasty")
 }

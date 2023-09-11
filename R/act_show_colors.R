@@ -50,5 +50,11 @@ Another dimension")
                                                           package="Rtesunate")),
                            grDevices::dev.size("px"))
   print(a, info = FALSE)
-} else{scales::show_col(mal_pal[[palette]])}
+} else if(palette == "ok_computer"){
+  cat("Make your graphs fitter. Happier. More productive.")
+  a <- magick::image_scale(magick::image_read(system.file("okcomputer.png",
+                                                          package="Rtesunate")),
+                           grDevices::dev.size("px"))
+  print(a, info = FALSE)
+}else{scales::show_col(mal_pal[[palette]])}
 }

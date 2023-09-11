@@ -145,6 +145,15 @@ hello_nasty = c("#DB5721",
                 "#66665D",
                 "#222220"),
 
+# radiohead: ok computer, 1997
+ok_computer = c("#00447c",
+                "#eaf3f5",
+                "#aed1e0",
+                "#9ab9c8",
+                "#4b5661",
+                "#8d747c",
+                "#c9b3b3"),
+
  # joy division: unknown pleasures, 1979
 unknown_pleasures = c("#11120d",
                       "#dfdfd7"))

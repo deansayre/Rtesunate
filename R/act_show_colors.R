@@ -6,7 +6,9 @@
 #' @param palette Palette name (in quotes)
 #'
 #' @examples
-#' get_jams()
+#' act_show_colors("aladdin_sane")
+#'
+#'
 #'
 #' @export
 
@@ -42,5 +44,5 @@ Another dimension")
                                       package="Rtesunate")),
                            grDevices::dev.size("px"))
   print(a, info = FALSE)
-} else{cat("TBD")}
+} else{scales::show_col(mal_pal[[palette]])}
 }

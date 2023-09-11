@@ -16,6 +16,8 @@ Righteous colors
 Let's ROCK!
 }
 \examples{
-get_jams()
+act_show_colors("aladdin_sane")
+
+
 
 }

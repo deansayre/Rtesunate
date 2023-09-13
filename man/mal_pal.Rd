@@ -5,7 +5,7 @@
 \alias{mal_pal}
 \title{Color Palettes}
 \format{
-An object of class \code{list} of length 14.
+An object of class \code{list} of length 15.
 }
 \usage{
 mal_pal
@@ -15,6 +15,8 @@ The list of available palettes is:
 }
 \details{
 ncezid
+niosh
+ncrid
 usaid
 pmi_desert
 pmi_bg
@@ -24,6 +26,8 @@ purple_rain
 aladdin_sane
 sgt_pepper
 hello_nasty
+ok_computer
+los_angeles
 }
 \examples{
 

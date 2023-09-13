@@ -52,7 +52,14 @@ Another dimension")
   print(a, info = FALSE)
 } else if(palette == "ok_computer"){
   cat("Make your graphs fitter. Happier. More productive.")
-  a <- magick::image_scale(magick::image_read(system.file("okcomputer.png",
+  a <- magick::image_scale(magick::image_read(system.file("ok_computer.png",
+                                                          package="Rtesunate")),
+                           grDevices::dev.size("px"))
+  print(a, info = FALSE)
+}else if(palette == "los_angeles"){
+  cat("Your graph's off the hook... \n
+      BUT YOU'RE NOT!")
+  a <- magick::image_scale(magick::image_read(system.file("los_angeles.png",
                                                           package="Rtesunate")),
                            grDevices::dev.size("px"))
   print(a, info = FALSE)

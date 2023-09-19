@@ -162,6 +162,7 @@ ok_computer = c("#00447c",
 unknown_pleasures = c("#11120d",
                       "#dfdfd7"),
 
+ # x: los angeles, 1980
 los_angeles = c("#001121",
                 "#fffed8",
                 "#58130c",

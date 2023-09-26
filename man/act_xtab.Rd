@@ -5,7 +5,7 @@
 \title{Creates crosstabs showing weighted proportion and CIs for two categorical
 variables of interest}
 \usage{
-act_xtab(x, y, design, print = FALSE, ...)
+act_xtab(x, y, design, hundo = "row", print = FALSE, ...)
 }
 \arguments{
 \item{x}{variable of interest in svydesign object}
@@ -13,6 +13,9 @@ act_xtab(x, y, design, print = FALSE, ...)
 \item{y}{variable of interest in svydesign object}
 
 \item{design}{svydesign object}
+
+\item{hundo}{string variable indicating how estimates add to 100\%. Current
+options are "diagonal" or "row" (the default)}
 
 \item{print}{Boolean variable; determines if output is tidy/friendly for
 additional manipulation or in 2x2 format for print/human reading. Defaults to

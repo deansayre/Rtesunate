@@ -39,6 +39,9 @@ data1 <- dhs_data(countryIds = list("AO",
                                    "ZM",
                                    "ZW"),
                   tagIds = "36", breakdown = "all")
+
+
+
 pmi_dhs_data <- data1 %>%
   select(-c(DataId, IsPreferred, SDRID, Precision, RegionId, IndicatorOrder,
             CharacteristicId, IsTotal, ByVariableLabel,
@@ -55,6 +58,8 @@ pmi_dhs_data <- data1 %>%
            CIHigh) %>%
   filter(IndicatorType == "I") %>%
   select(-IndicatorType)
+
+
 
 
 usethis::use_data(pmi_dhs_data, overwrite = TRUE)

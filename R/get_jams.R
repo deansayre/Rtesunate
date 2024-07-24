@@ -17,6 +17,8 @@ get_jams <- function(secret_code = NULL){
       browseURL("https://www.youtube.com/watch?v=u5o582N3wOQ")
     } else if (secret_code == "please don't confront me with my failures. i had not forgotten them."){
       browseURL("https://www.youtube.com/watch?v=1vxQs84FMWQ")
+    } else if (secret_code == "trial by fire"){
+      browseURL('https://www.youtube.com/watch?v=jPsZqDKwCQo&list=OLAK5uy_lHJ2orORd04rtdu-cUo-fnUkOYNBCtwyM&index=2')
     } else if (secret_code == "hallender mix"){
       vect <- c("https://www.youtube.com/watch?v=0R7wpcw1Z4A",
                 "https://www.youtube.com/watch?v=Kh8-r6O43Rw",

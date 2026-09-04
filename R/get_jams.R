@@ -25,7 +25,14 @@ get_jams <- function(secret_code = NULL){
                 "https://www.youtube.com/watch?v=c9zteYU7jSU")
 
       x1 <- sample(vect, 1)
-      browseURL(x1)}  else{cat("Ah ah ah... you didn't say the magic word\n
+      browseURL(x1)} else if (secret_code == "so long. farewell. auf wiedersehen. adieu"){
+        vect <- c("https://www.youtube.com/watch?v=Qy9_lfjQopU",
+                  "https://www.youtube.com/watch?v=X70VHzox6uA&list=RDX70VHzox6uA&start_radio=1",
+                  "https://www.youtube.com/watch?v=pDPq1QbGAAk&list=RDpDPq1QbGAAk&start_radio=1",
+                  "https://www.youtube.com/watch?v=-hhXBUACV8Y&list=RD-hhXBUACV8Y&start_radio=1")
+
+        x1 <- sample(vect, 1)
+        browseURL(x1)}   else{cat("Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n
                   Ah ah ah... you didn't say the magic word\n
